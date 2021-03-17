@@ -24,16 +24,22 @@ if you have docker installed, you call pull the images:
     git clone https://github.com/bm2-lab/Dr.Sim.git  
     
 ## Usage
-Dr.Sim can be applied for drug annotation  
+Dr.Sim can be applied for drug annotation:  
 
     python  DrugAno.py --help
     
-drug repositioning  
+Drug repositioning  
 
     python  DrugRep.py  --help
     
-    
-    
+## User Manual
+For detailed information about usage, input and output files, test examples and data preparation, please refer to the [Dr.Sim User Manual](/doc/Dr.Sim_User_Manual.md).
+ 
+## Dr.Sim flowchart
+![](workflow.pdf)
+ 
+
+#### 
     
     
     
