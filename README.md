@@ -39,8 +39,13 @@ For detailed information about usage, input and output files, test examples and 
 ![](workflow.png)
  
 
-#### 
-    
+#### Citation:
+Similarity learning for transcriptional phenotypic drug discovery, submitted, 2021.
+
+## Contact
+Zhiting Wei 1632738@tongji.edu.cn  
+Qi Liu qiliu@tongji.edu.cn  
+Tongji University, Shanghai, China
     
     
     
