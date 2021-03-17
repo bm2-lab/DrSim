@@ -39,7 +39,7 @@ For detailed information about usage, input and output files, test examples and 
 ![](workflow.png)
  
 
-#### Citation:
+## Citation:
 Similarity learning for transcriptional phenotypic drug discovery, submitted, 2021.
 
 ## Contact
