@@ -15,7 +15,7 @@ and in-vivo datasets in drug annotation and repositioning using the high-through
 ## Installation
 #### Install via docker, highly recommended
 Docker image of Dr.Sim is available at https://hub.docker.com/r/bm2lab/dr.sim/.
-if you have docker installed, you call pull the images:  
+if you have docker installed, you call pull the image:  
 
     docker pull bm2lab/dr.sim
 
