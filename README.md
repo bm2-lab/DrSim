@@ -36,7 +36,7 @@ Drug repositioning
 For detailed information about usage, input and output files, test examples and data preparation, please refer to the [Dr.Sim User Manual](/doc/Dr.Sim_User_Manual.md).
  
 ## Dr.Sim flowchart
-![](workflow.pdf)
+![](workflow.png)
  
 
 #### 
