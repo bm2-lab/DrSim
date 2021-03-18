@@ -30,10 +30,10 @@ used for query assignment based on the reference signatures. Briefly:
     python  DrugAno.py  -ref  DrugAnoRef_24H.h5  -query  A375_24H.tsv
     ```
     
-    * **Output Column explanation**
+    * **Output column explanation**
     
     | Query ID           | MOA description 1 | MOA description 2 | MOA scores 1 | MOA scores 2|
-    | -----------           | ----------- | -------- | --------| --------| 
+    | :-----------: | :-----------: | :--------: | :--------: | :--------: | 
     | Query ID 1               | RAF inhibitor | HDAC inhibitor | 0.831 | 0.731 |  
     | Query ID 2               | CDK activator  | Na+ ch. blocker | 0.732  | 0.693| 
 
