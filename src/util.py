@@ -6,7 +6,6 @@ from multiprocessing import Pool
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd, numpy as np
 Datapath = os.path.dirname(os.path.abspath(__file__))
-print (Datapath)
 
 def convertDrugName(name):
     temp = []
