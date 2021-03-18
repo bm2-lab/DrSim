@@ -31,11 +31,12 @@ used for query assignment based on the reference signatures. Briefly:
     ```
     
     * **output**  
-    By default, the results contails ten MOAs that have largest similarities to the query.  
-    | Trained model names | Description | No. of cell types |
-    | :----: | :----: | :----: |
-    | Aorta_mouse_FACS.rds | Mouse aorta | 4 |
-    | Bladder_mouse_FACS.rds | Mouse bladder | 2 | 
+    By default, the results contails ten MOAs that have largest similarities to the query.     
+    | Trained model names | Description | No. of cell types |  
+    
+    | :----: | :----: | :----: |  
+    | Aorta_mouse_FACS.rds | Mouse aorta | 4 |  
+    | Bladder_mouse_FACS.rds | Mouse bladder | 2 |   
 
 
      
