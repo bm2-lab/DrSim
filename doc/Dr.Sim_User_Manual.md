@@ -30,11 +30,10 @@ used for query assignment based on the reference signatures. Briefly:
     python  DrugAno.py  -ref  DrugAnoRef_24H.h5  -query  A375_24H.tsv
     ```
     
-    * **output**  
-    By default, the results contails ten MOAs that have largest similarities to the query.       
+    * **output** By default, the results contails ten MOAs that have largest similarities to the query.       
 
 
-    | Column Name           | Description |
+    | Query ID           | MOA Description 1-10 | MOA score 1-10 |
     | -----------           | ----------- |
     | pert_id               | id in the CMap Touchstone |
     | TAG                   | Compound CMap score |
