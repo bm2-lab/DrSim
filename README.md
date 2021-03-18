@@ -24,12 +24,13 @@ if you have docker installed, you call pull the image:
     git clone https://github.com/bm2-lab/DrSim.git  
     
 ## Usage
-Dr.Sim can be applied for drug annotation:  
+Dr.Sim can be applied for:
+**Drug annotation:**    
 
     python  DrugAno.py --help
     python  DrugAno.py  -ref  DrugAnoRef.h5   -query  query.tsv
     
-Drug repositioning  
+**Drug repositioning**    
 
     python  DrugRep.py  --help
     python  DrugRep.py   -ref  DrugRepRef.h5  -query  query.tsv
