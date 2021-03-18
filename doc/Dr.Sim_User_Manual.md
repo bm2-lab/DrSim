@@ -30,9 +30,9 @@ used for query assignment based on the reference signatures. Briefly:
     python  DrugAno.py  -ref  DrugAnoRef_24H.h5  -query  A375_24H.tsv
     ```
     * **output**
-      * By default, the results contails ten MOAs that have largest similarities to the query.
+      * By default, the results contails ten MOAs that have largest similarities to the query.  
 | Query ID              | MOA 1 description | MOA 2 description | MOA score 1 | MOA score 10
-| -----------           | ----------- | | | |
+| -----------           | ----------- | ----------|-----------|
 | Query ID1             | MOA score 1| MOA score 10 | |
 | Query ID2                   | Compound CMap score |
 
@@ -50,7 +50,7 @@ used for query assignment based on the reference signatures. Briefly:
     python preQuery -tumor MCF7_tumorExp.tsv -normal MCF7_controlExp.tsv -normalize
     ```
     
-    # Model training and similarity calculation
+    * **Model training and similarity calculation**
     ```r
     python  DrugRep.py   -ref  DrugRepRef_24H.h5  -query  BRCA_Query.tsv 
     ```
