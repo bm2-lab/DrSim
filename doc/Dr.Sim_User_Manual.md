@@ -4,3 +4,5 @@
 signature and each reference transcriptional signature cluster centroid using a measurement learned from reference transcriptional signatures, rather than empirically
 designing. The basic idea of Dr. Sim is a similarity learning schema which aims at making query signatures and reference signatures belonging to identical class become
 more similar, while query signatures and reference signatures belonging to different classes become more dissimilar. For illustration purpose, LINCS is used as the reference transcriptional signatures data resource since it holds the largest-scale signatures that produced by treating human cancer cell lines with different compounds under different conditions. Nevertheless, the application of Dr.Sim is not restricted to LINCS and it can be applied directly to other transcriptional perturbation-based data resources for phenotypic drug discovery. Basically, Dr.Sim comprises three main steps: data preprocessing, model training, and similarity calculation.
+  * **Data preprocessing**:
+        * **Prepare of reference signature** 
