@@ -55,7 +55,8 @@ used for query assignment based on the reference signatures. Briefly:
     
     * **Model training and similarity calculation**
     ```r
-    python  DrugRep.py   -ref  DrugRepRef_24H.h5  -query  BRCA_Query.tsv
+    python  DrugRep.py  -ref  MCF7/DrugRepRef_24H.h5  -query  BRCA_Query.tsv  
+    python  DrugRep.py  -ref  MCF7/DrugRepRef_6H.h5   -query  BRCA_Query.tsv 
     ```
     
     * **Output column explanation**
