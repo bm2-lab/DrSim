@@ -24,7 +24,7 @@ if you have docker installed, you call pull the image:
     git clone https://github.com/bm2-lab/DrSim.git  
     
 ## Usage
-Dr.Sim can be applied for:
+Dr.Sim can be applied for:  
 **Drug annotation:**    
 
     python  DrugAno.py --help
