@@ -31,10 +31,10 @@ used for query assignment based on the reference signatures. Briefly:
     ```
     
     * **output** 
-    By default, the results contails ten MOAs that have largest similarities to the query.       
+    ### Column explanation
+    The output CMap_tox.tsv consists of the following columns:
 
-
-    | Query ID           | MOA Description | MOA score |
+    | Column Name           | Description |
     | -----------           | ----------- |
     | pert_id               | id in the CMap Touchstone |
     | TAG                   | Compound CMap score |
