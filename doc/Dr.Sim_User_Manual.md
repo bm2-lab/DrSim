@@ -32,12 +32,11 @@ used for query assignment based on the reference signatures. Briefly:
     
     * **output**  
     By default, the results contails ten MOAs that have largest similarities to the query.       
-    
-    
 
-| Query ID           | MOA description | MOA score
+
+| Column Name           | Description |
 | -----------           | ----------- |
-| Query 1              | MOA 1 | MOA score 1 | 
+| pert_id               | id in the CMap Touchstone |
 | TAG                   | Compound CMap score |
 | pert_iname            | Compound name |
 | Toxicity              | Whether the identified compound is toxic or not|
