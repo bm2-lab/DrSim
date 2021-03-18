@@ -57,6 +57,13 @@ used for query assignment based on the reference signatures. Briefly:
     python  DrugRep.py   -ref  DrugRepRef_24H.h5  -query  BRCA_Query.tsv 
     ```
     
+    * **Output column explanation**
+        
+    | Drug ID | Drug score  | MOA description |
+    | :-----------: | :-----------: |:----------:|
+    | methotrexate               | -0.472 |  Dihydrofolate reductase inhibitor  |
+    | tioguanine               | -0.401 |   antimetabolite | 
+    
 
     
     
