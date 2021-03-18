@@ -36,7 +36,7 @@ Dr.Sim can be applied for:
     python  DrugRep.py   -ref  DrugRepRef.h5  -query  query.tsv
     
 ## User Manual
-For detailed information about usage, input and output files, test examples and data preparation, please refer to the [Dr.Sim User Manual](/doc/Dr.Sim_User_Manual.md).
+For detailed information about usage, data preparation, input and output files and examples, please refer to the [Dr.Sim User Manual](/doc/Dr.Sim_User_Manual.md).
  
 ## Dr.Sim flowchart
 ![](workflow.png)<!-- -->
