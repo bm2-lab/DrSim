@@ -33,12 +33,10 @@ used for query assignment based on the reference signatures. Briefly:
     * **Output Column explanation**    
     
 
-    | Column Name           | Description |
+    | Query ID           | MOA tags | MOA scores|
     | -----------           | ----------- |
-    | pert_id               | id in the CMap Touchstone |
-    | TAG                   | Compound CMap score |
-    | pert_iname            | Compound name |
-    | Toxicity              | Whether the identified compound is toxic or not|
+    | Query ID 1               | MOA tag 1 | MOA tag 2|
+
 
 
      
