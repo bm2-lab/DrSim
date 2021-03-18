@@ -38,7 +38,11 @@ Drug repositioning
 For detailed information about usage, input and output files, test examples and data preparation, please refer to the [Dr.Sim User Manual](/doc/Dr.Sim_User_Manual.md).
  
 ## Dr.Sim flowchart
-![](workflow.png)
+![](workflow.png)<!-- -->
+### **Dr.Sim** comprises three steps: data preprocessing, model training and similarity calculation
+* **(i)** In the first step, only signatures treated by compounds for 6H or 24H in the nine human cancer cell lines are retained and retained signatures are split into subsets according to cell type and time-point attributes. 
+*  **(ii)** In the second step, Dr. Sim automatically infers a similarity measurement used for query assignment based on the training reference signatures. First, PCA was applied to reference signatures to denoise and reduce dimensionality. A transformation matrix P is learned. Second, through applying LDA to the dimensionality reduced signatures, a transformation matrix L is learned based on the signature labels indicating similarities and dissimilarities between signatures. The label of a signature is the compound class that it is induced by. Finally, the transformed references denoted as TR belonging to the identical class are median centered to derive the transformed median centered references (denoted as TMR). The transformed references TR is calculated using Eq. 1. The C denotes the classes of signatures. 
+*  **(iii)** In the third step, given a query signature, after transformed by P and L, its similarities to the TMR were calculated by cosine similarity (Eq. 3).
  
 
 ## Citation:
