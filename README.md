@@ -21,7 +21,7 @@ if you have docker installed, you call pull the image:
 
 #### Install from github   
 
-    git clone https://github.com/bm2-lab/Dr.Sim.git  
+    git clone https://github.com/bm2-lab/DrSim.git  
     
 ## Usage
 Dr.Sim can be applied for drug annotation:  
