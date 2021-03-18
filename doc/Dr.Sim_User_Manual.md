@@ -32,9 +32,14 @@ used for query assignment based on the reference signatures. Briefly:
     
     * **output**  
     By default, the results contails ten MOAs that have largest similarities to the query.     
-    | Trained model names | Description | No. of cell types |        
-    | Aorta_mouse_FACS.rds | Mouse aorta | 4 |
-    | Bladder_mouse_FACS.rds | Mouse bladder | 2 |   
+    
+
+| Column Name           | Description |
+| -----------           | ----------- |
+| pert_id               | id in the CMap Touchstone |
+| TAG                   | Compound CMap score |
+| pert_iname            | Compound name |
+| Toxicity              | Whether the identified compound is toxic or not|
 
 
      
