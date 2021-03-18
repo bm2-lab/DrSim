@@ -30,9 +30,8 @@ used for query assignment based on the reference signatures. Briefly:
     python  DrugAno.py  -ref  DrugAnoRef_24H.h5  -query  A375_24H.tsv
     ```
     
-    * **output** 
-    ### Column explanation
-    The output CMap_tox.tsv consists of the following columns:
+    * **Output Column explanation**    
+    
 
     | Column Name           | Description |
     | -----------           | ----------- |
