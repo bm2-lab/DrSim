@@ -34,12 +34,13 @@ used for query assignment based on the reference signatures. Briefly:
     By default, the results contails ten MOAs that have largest similarities to the query.       
     
     
-    | Query ID           | MOA 1| MOA 2| S |MOA score 1 | MOA score 2| S |    
-    | :----------- :| :-------: |:--------:|:---------:|:----:|:------:|:-------:|   
-    | pert_id               | id in the CMap Touchstone |   
-    | TAG                   | Compound CMap score |   
-    | pert_iname            | Compound name |
-    | Toxicity              | Whether the identified compound is toxic or not|
+
+| Query ID           | MOA description | MOA score
+| -----------           | ----------- |
+| Query 1              | MOA 1 | MOA score 1 | 
+| TAG                   | Compound CMap score |
+| pert_iname            | Compound name |
+| Toxicity              | Whether the identified compound is toxic or not|
 
 
      
