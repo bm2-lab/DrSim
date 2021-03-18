@@ -27,12 +27,12 @@ if you have docker installed, you call pull the image:
 Dr.Sim can be applied for drug annotation:  
 
     python  DrugAno.py --help
-    python  DrugAno.py  -ref  DrugAnoRef_24H.h5 -query  query.tsv
+    python  DrugAno.py  -ref  DrugAnoRef.h5   -query  query.tsv
     
 Drug repositioning  
 
     python  DrugRep.py  --help
-    python  DrugRep.py   -ref  DrugRepRef_24H.h5  -query  query.tsv
+    python  DrugRep.py   -ref  DrugRepRef.h5  -query  query.tsv
     
 ## User Manual
 For detailed information about usage, input and output files, test examples and data preparation, please refer to the [Dr.Sim User Manual](/doc/Dr.Sim_User_Manual.md).
