@@ -32,10 +32,10 @@ used for query assignment based on the reference signatures. Briefly:
     
     * **Output Column explanation**
     
-    | Query ID           | MOA tags | MOA scores| MOA tags | MOA scores |
+    | Query ID           | MOA description 1 | MOA description 2 | MOA scores 1 | MOA scores 2|
     | -----------           | ----------- | -------- | --------| --------| 
-    | Query ID 1               | MOA tag 1 | MOA tag 2| MOA scores 1 | MOA scores 2|  
-    | Query ID 2               | MOA tag 1 | MOA tag 2| MOA scores 1 | MOA scores 2| 
+    | Query ID 1               | RAF inhibitor | HDAC inhibitor | 0.831 | 0.731 |  
+    | Query ID 2               | CDK activator  | Na+ ch. blocker | 0.732  | 0.693| 
 
 
 
