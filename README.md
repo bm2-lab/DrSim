@@ -36,7 +36,7 @@ Dr.Sim can be applied for:
     python  DrugRep.py   -ref  DrugRepRef.h5  -query  query.tsv
     
 ## User Manual
-For detailed information about usage, data preparation, input and output files and examples, please refer to the [Dr.Sim User Manual](/doc/Dr.Sim_User_Manual.md).
+For detailed information about usage, data preparation, input and output files and examples, please refer to the [Dr.Sim User Manual](/doc/Dr.Sim_User_Manual.md). The reference signatures in LINCS are available at [onedrive](https://tongjieducn-my.sharepoint.com/:f:/g/personal/1810546_tongji_edu_cn/EilBAh48yfNCmgXZGu1kF5AB845goXLHllwhg1Q8d9akjg?e=pusKSM). The example query signatures generated in TCGA in-vivo data are available at [onedrive](https://tongjieducn-my.sharepoint.com/:f:/g/personal/1810546_tongji_edu_cn/EsGz1_ulnkBOr4KIW3RIw04BNkB01ShvpfL5aNnosFrfCw?e=hJi0N9).
  
 ## Dr.Sim flowchart
 ![](workflow.png)<!-- -->
