@@ -20,7 +20,7 @@ warnings.filterwarnings('ignore')
 Datapath = os.path.dirname(os.path.abspath(__file__))
 
 ### calculation of query signature for DrSim
-##normalized RNA-seq express
+##normalize RNA-seq count express with edgeR cpm function
 def Normalized():
     try:
         cmd = 'Rscript  {}/normalize.r  {}  {}'.format(Datapath, args.tumor, args.normal)
@@ -35,7 +35,7 @@ def Normalized():
     except Exception as e:
         print (e); print ('{} failed!'.format(cmd))
 
-
+#### calculate Z-score query signature
 def calZScore():
     treat = pd.read_csv(args.tumor, sep='\t', index_col=0)
     control = pd.read_csv(args.normal, sep='\t', index_col=0)
