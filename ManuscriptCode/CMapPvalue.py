@@ -5,7 +5,7 @@ from scipy import stats
 from statsmodels.stats.multitest import multipletests
 from util import calCosine, RunMultiProcess
 
-
+### calculation the p-value of a compound using random generated query signatures
 pValue = True
 def calPvalue(ref, query, experiment, fun):
     nperm = 1000 if pValue else 1
