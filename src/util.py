@@ -28,7 +28,7 @@ def myPool(func, mylist, processes):
         results = list(tqdm(pool.imap(func, mylist), total=len(mylist)))
     return results
 
-### convert sigid to MOA class
+### convert sigid in LINCS to MOA class
 def sigidTo(MOA):
     label_filegz = '{}/../data/{}SigInfo.tsv.gz'.format(Datapath, MOA)
     if os.path.isfile(label_filegz):
@@ -69,7 +69,8 @@ def calCosine(Xtr, Xte):
     dat_cor.index = Xte.index
     return dat_cor
 
-#### using randomly generated signatures to calculate the pvalue of a compound
+#### using randomly generated signatures to calculate the pvalue of a compound,
+#### for more details, please refer to our manuscript
 def calPvalue(ref, query, experiment, fun):
     nperm = 1000
     rs = np.random.RandomState(seed=2020)
