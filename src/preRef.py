@@ -12,7 +12,7 @@ except Exception as e:
 ### only cell line with enough signature is kept
 cell_lines = ['MCF7', 'A375', 'PC3', 'HT29', 'A549', 'BT20','VCAP', 'HCC515', 'HEPG2']
 
-#### prepprocess metadata downloaded from LINCS and only retain data in the nine core cell lines.
+#### preprocess metadata downloaded from LINCS and only retain data in the nine core cell lines.
 def processInfo():
     keep_idose = [1, 10, 100, 500, 1000, 3000, 5000, 10000]
     os.chdir('/home/wzt')
