@@ -23,6 +23,7 @@ def getDrugiDose(x):
     elif x[1] == 'nM':
         return int('{:.0f}'.format(float(x[0])))
 
+# LINCS id to drug name or MOA class dict
 def sigid2iname(MOA = ''):
     label_file = '/home//project/Metric_learning/{}SigInfo.tsv'.format(MOA)
     sig_id2pert_iname = {}
@@ -38,6 +39,7 @@ def sigid2iname(MOA = ''):
                 sig_id2pert_iname[i] = label
     return sig_id2pert_iname
 
+## drug name to MOA class dict
 def drug2MOA(MOA = 'MOA'):
     label_file = '/home//project/Metric_learning/{}SigInfo.tsv'.format(MOA)
     drugtoMOA ={}
@@ -93,7 +95,7 @@ def calSpearman(Xtr, Xte):    ###   (x-xmean) *(y - ymean) / ((x-xmean)**2)**.5 
     dat_cor = pd.DataFrame(cor, index=Xte_index, columns=Xtr_index)
     return dat_cor
 
-
+### calculation the precision score
 def precision(GSE, cell_line, trTime, method):
     doMultiProcess = RunMultiProcess()
     MOA = doMultiProcess.MOA
