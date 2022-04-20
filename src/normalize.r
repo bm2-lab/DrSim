@@ -1,3 +1,4 @@
+# To be compatible with LINCS reference signatures, the RNAseq raw count expression was normalized with edgeR cpm function
 library(edgeR)
 Args <- commandArgs(T)
 treat = read.table(Args[1],sep = '\t',header = T, row.names = 1,check.names = F)
