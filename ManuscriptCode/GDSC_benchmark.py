@@ -25,7 +25,7 @@ sig_id2pert_iname = sigid2iname('')
 doPCA = True; rePCA = True; savaPCA = True; reverseExp = True
 
 ### 求到质心的相关性
-sig_pValue = 0.01
+sig_pValue = 0.01 ### the pvalue cutoff uesd to classify the drug to be effective or ineffective
 
 def writeResult(dat_cor, output_file):
     dat_cor = dat_cor.T
@@ -103,6 +103,7 @@ def runlfda(metric):
        lfda((GSE, cell_line, trTime, metric))
 
 ###################################################
+# cosine similarity function
 def Pearson(ref, query):
     query = query.sort_values(by=query.index[0], axis=1)   ####  基因排序
     genes = query.columns[:100].tolist() + query.columns[-100:].tolist()  ### 改变基因的数量
@@ -134,7 +135,7 @@ def f_Pearson(metric):
         print ('{}\t{}\t{}\tcosine\tcompleted\n'.format(GSE, cell_line, trTime))
 
 
-
+### XSum similarity function
 def XSum(ref, query):
     query = query.sort_values(by=query.index[0], axis=1, ascending = False)   ####  基因排序
     upGenes = query.columns[:100]; dnGenes = query.columns[-100:]   ### 改变基因的数量
@@ -170,7 +171,7 @@ def f_XSum(metric):
         writeResult(dat_cor, output_file)
         print ('{}\t{}\t{}\txSum\tcompleted\n'.format(GSE, cell_line, trTime))
 
-
+###  XCosine similarity function
 ### 把Xtr不显著的基因score设置为0
 def f_XPearson(metric):
     basepath = '/home//project/Metric_learning'; os.chdir(basepath)
