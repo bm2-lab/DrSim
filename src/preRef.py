@@ -14,9 +14,9 @@ cell_lines = ['MCF7', 'A375', 'PC3', 'HT29', 'A549', 'BT20','VCAP', 'HCC515', 'H
 
 #### preprocess metadata downloaded from LINCS and only retain data in the nine core cell lines.
 def processInfo():
-    keep_idose = [1, 10, 100, 500, 1000, 3000, 5000, 10000]
+    keep_idose = [1, 10, 100, 500, 1000, 3000, 5000, 10000]. ### only retain data under those drug concentration
     os.chdir('/home/wzt')
-    sig_info = 'data/GSE92742_Broad_LINCS_sig_info.txt'
+    sig_info = 'data/GSE92742_Broad_LINCS_sig_info.txt' ## metadata downloaded from NCBI which is uploaded by LINCS
     with open(sig_info, 'r') as fin, open('data/SigInfo.tsv', 'w') as fout:
         fout.write('sig_id\tpert_id\tpert_iname\tpert_dose\tpert_idose\tdistil_id\n')
         fin.readline()
@@ -66,20 +66,20 @@ def exPress(X):
 def f_exPress():
     os.chdir('/home/wzt')
     global level4
-    gctx = 'data/GSE92742_Broad_LINCS_Level4_ZSPCINF_mlr12k_n1319138x12328.gctx'
-    level4 = parse(gctx)
+    gctx = 'data/GSE92742_Broad_LINCS_Level4_ZSPCINF_mlr12k_n1319138x12328.gctx' ### raw gctx file downloaded from NCBI
+    level4 = parse(gctx) ### cmapPy parse function
     mylist = [[i, j] for i in cell_lines for j in ['6H', '24H']]
-    pool = Pool(4); pool.map(exPress, mylist);  pool.close(); pool.join()
+    pool = Pool(4); pool.map(exPress, mylist);  pool.close(); pool.join() ## using multi-process to speed up function
     
 #### prepare signature file for drug annotation scenario
 def drugAnnotation(cell_line, trTime):
-    minSize = 5
+    minSize = 5 ### set minimum replicate to 5
     filein = 'data/{}/{}/exp.h5'.format(cell_line, trTime)
     fileout = 'data/{}/{}/DrugAnoRef.h5'.format(cell_line, trTime)
     if not os.path.isfile(filein):
         print ('filein not exist'); return
     dat = pd.read_hdf(filein, key='dat')
-    sigid2MOA, sigid2drug = sigidTo('MOA')
+    sigid2MOA, sigid2drug = sigidTo('MOA') ## convert signature id in LINCS to drug name and MOA class
     a = [i for i in dat.index if i in sigid2MOA]
     b = [sigid2drug[i] for i in a]
     selected = [True if b.count(i) >= minSize else False for i in b]
@@ -92,7 +92,7 @@ def f_drugAnnotation():
     for cell_line in cell_lines:
         for trTime in ['6H', '24H']:
             drugAnnotation(cell_line, trTime)
-
+### only retained Launched drug for benchmark
 def getFDA():
     filein = 'data/CMap_FDADrugs.tsv'
     dat = pd.read_csv(filein, sep='\t', header=0)
@@ -101,7 +101,7 @@ def getFDA():
 
 ### prepare signature file for drug repositioning scenario
 def drugReposition(cell_line, trTime):
-    minSize = 3
+    minSize = 3 ### set minimum replicate to 3
     sigid2MOA, sigid2drug = sigidTo('')
     FDA_Approved = getFDA()
     filein = 'data/{}/{}/exp.h5'.format(cell_line, trTime)
