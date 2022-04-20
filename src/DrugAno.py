@@ -23,6 +23,7 @@ from util import calCosine, drugTOMOA, sigidTo
 
 Datapath = os.path.dirname(os.path.abspath(__file__))
 
+### output ranked drug annotation result
 def writeResult(dat_cor, output_file):
     drug2MOA = drugTOMOA()
     with open(output_file, 'w') as fout:
@@ -45,8 +46,8 @@ def runLDA():
     tmp = [i for i in Xtr.columns if i in Xte.columns]
     Xtr = Xtr.loc[:, tmp]; Xte = Xte.loc[:, tmp]
     sigid2MOA, sigid2drug = sigidTo('')
-    pert_iname = [sigid2drug[i] for i in Xtr.index]
-    pca = PCA(random_state=2020, n_components=args.variance)
+    pert_iname = [sigid2drug[i] for i in Xtr.index]  ### use drug name as the training label
+    pca = PCA(random_state=2020, n_components=args.variance) ### dimension reduction with PCA
     Xtr_pca = pca.fit_transform(Xtr)
     Xte_pca = pca.transform(Xte)
     labelencoder = LabelEncoder()
@@ -54,12 +55,12 @@ def runLDA():
     ml = LinearDiscriminantAnalysis(solver='svd', n_components=args.dimension)
     Xtr_pca_lda = ml.fit_transform(Xtr_pca, ytr)
     Xte_pca_lda = ml.transform(Xte_pca)
-    Xtr_pca_lda = Xtr_pca_lda[:, ~np.isnan(Xtr_pca_lda)[0]]
-    Xte_pca_lda = Xte_pca_lda[:, ~np.isnan(Xte_pca_lda)[0]]
+    Xtr_pca_lda = Xtr_pca_lda[:, ~np.isnan(Xtr_pca_lda)[0]] ## filter NA column
+    Xte_pca_lda = Xte_pca_lda[:, ~np.isnan(Xte_pca_lda)[0]] ## filter NA column
     a = pd.DataFrame(Xtr_pca_lda, index = pert_iname)
     ref = a.groupby(pert_iname).median()
     query = pd.DataFrame(data = Xte_pca_lda, index = Xte.index)
-    dat_cor = calCosine(Xtr = ref, Xte = query)
+    dat_cor = calCosine(Xtr = ref, Xte = query) ### calculation of similarity between query and reference signature
     writeResult(dat_cor, args.output)
 
 
