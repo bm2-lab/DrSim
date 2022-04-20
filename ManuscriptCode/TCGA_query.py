@@ -50,6 +50,7 @@ def getExp(CC):
     normal_dat.drop(labels=['ENSEMBL', 'ENTREZID'], axis=1, inplace=True)
     return tumor_dat, normal_dat
 
+### Z-score to generate query signature
 def ZScorequery(cell_line, cancerType):
     basepath = '/home/wzt/project/Metric_learning'; os.chdir(basepath)
     path = '/home/wzt/project/GeneFusion/SNVIndel'
