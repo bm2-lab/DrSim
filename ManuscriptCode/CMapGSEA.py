@@ -6,6 +6,7 @@ from util import RunMultiProcess
 import warnings
 warnings.filterwarnings('ignore')
 
+### To speed up GSEA, using broadcast in numpy and pandas to implement the GSEA algorithm from scratch
 def isin2D(full_array, sub_arrays):
     out = np.zeros((sub_arrays.shape[0],len(full_array)),dtype=bool)
     sidx = full_array.argsort()
@@ -16,7 +17,7 @@ def isin2D(full_array, sub_arrays):
     out = out.astype(int)
     return out.T
 
-
+### calculate up gene or down gene set score separately
 def calculateScore(all_Genelist,corMat_subset):
     axis=0
     corMat_subset = corMat_subset.abs()
@@ -30,7 +31,7 @@ def calculateScore(all_Genelist,corMat_subset):
     esmax, esmin = REStensor.max(axis=axis), REStensor.min(axis=axis)
     esmatrix = np.where(np.abs(esmax) > np.abs(esmin), esmax, esmin)
     return esmatrix
-
+### calculate GSEA score
 def GSEA(corMat_subset):
     up_es = calculateScore(all_upGenelist, corMat_subset)
     dn_es = calculateScore(all_dnGenelist, corMat_subset)
@@ -38,7 +39,7 @@ def GSEA(corMat_subset):
     es = pd.DataFrame(es.reshape(-1, 1), index = Xte_index, columns=[corMat_subset.name])
     return es
 
-
+#### input reference and query signatures, return GSEA score matrix
 def runGSEA(Xtr, Xte, processes = 32, num_genes=100):
     global all_upGenelist; global all_dnGenelist; global Xte_index
     all_upGenelist = []; all_dnGenelist = []; Xte_index = Xte.index
