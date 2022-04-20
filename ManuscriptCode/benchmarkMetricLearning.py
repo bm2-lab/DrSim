@@ -17,7 +17,7 @@ sig_id2MOA = sigid2iname('MOA')
 
 ### 和其它的算法LFDA, LMNN, NCA, MLKR进行比较
 ### 对药物求质心在求相关性
-MOA = ''   ### 训练的时候用的是什么标签
+MOA = ''   ### 训练的时候用的是什么标签, using drug name as the training label
 
 def outer(func):
     def inner(x):
