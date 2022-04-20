@@ -33,6 +33,7 @@ def writeResult(dat_cor, output_file):
     if dat_cor.shape[0] >=10: dat_cor = dat_cor.iloc[:10, :]
     dat_cor.to_csv(output_file, sep='\t', header=True, index=True, float_format= '%.3f')
 
+### LDA main function
 def runLDA():
     Xtr = pd.read_hdf(args.ref)
     if os.path.isfile(args.query):
