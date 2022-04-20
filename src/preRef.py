@@ -8,7 +8,9 @@ try:
 except Exception as e:
     print (e)
 
+### prepare reference signature for drug annotation and repositioning
     
+
 ### only cell line with enough signature is kept
 cell_lines = ['MCF7', 'A375', 'PC3', 'HT29', 'A549', 'BT20','VCAP', 'HCC515', 'HEPG2']
 
