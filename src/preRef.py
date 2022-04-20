@@ -8,8 +8,11 @@ try:
 except Exception as e:
     print (e)
 
+    
+### only cell line with enough signature is kept
 cell_lines = ['MCF7', 'A375', 'PC3', 'HT29', 'A549', 'BT20','VCAP', 'HCC515', 'HEPG2']
 
+#### prepprocess metadata downloaded from LINCS and only retain data in the nine core cell lines.
 def processInfo():
     keep_idose = [1, 10, 100, 500, 1000, 3000, 5000, 10000]
     os.chdir('/home/wzt')
@@ -35,6 +38,7 @@ def processInfo():
     dat = pd.merge(left=GSE92742, right=MOA, left_on='pert_id', right_on='pert_id')
     dat.to_csv('data/MOASigInfo.tsv', sep='\t', header=True, index=False)
 
+### subset signature from LINCS raw gctx file using cell line and trTime factor
 def exPress(X):
     cell_line, trTime = X
     try:        
@@ -67,7 +71,7 @@ def f_exPress():
     mylist = [[i, j] for i in cell_lines for j in ['6H', '24H']]
     pool = Pool(4); pool.map(exPress, mylist);  pool.close(); pool.join()
     
-
+#### prepare signature file for drug annotation scenario
 def drugAnnotation(cell_line, trTime):
     minSize = 5
     filein = 'data/{}/{}/exp.h5'.format(cell_line, trTime)
@@ -95,6 +99,7 @@ def getFDA():
     dat = dat[dat['Phase'] == 'Launched']
     return dat['Name'].apply(convertDrugName).values
 
+### prepare signature file for drug repositioning scenario
 def drugReposition(cell_line, trTime):
     minSize = 3
     sigid2MOA, sigid2drug = sigidTo('')
