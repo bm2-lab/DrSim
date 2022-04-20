@@ -18,7 +18,7 @@ sig_id2pert_iname = sigid2iname('')
 ### 求质心
 cell_lines = ['MCF7', 'A549', 'HCC515', 'PC3', 'VCAP']
 
-p_value = 0.01
+p_value = 0.01 # pvalue cut-off
 def getMOA():
     label_file1 = '/home/wzt/project/Metric_learning/MOA1SigInfo.tsv'
     label_file2 = '/home/wzt/project/Metric_learning/ATCSigInfo.tsv'
