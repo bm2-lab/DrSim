@@ -2,6 +2,7 @@ import re, os, glob, subprocess, pickle, time
 import pandas as pd, numpy as np
 
 ### 预处理基因注释信息
+### preprocess downloaded metadata
 def GSE26972():
     os.chdir('/home//project/Metric_learning/Alzheimer/GSE26972')
     filein1 = '/home//database/CMap/gene_info.txt'
@@ -20,7 +21,7 @@ def GSE26972():
                         fout.write('{}\t{}\t{}\n'.format(lines[0], i, dat.loc[dat['pr_gene_symbol'] == i, 'pr_gene_id'].values[0]))
                         break
 
-
+#### using Z-score to generate AD disease signature
 def ZScorequery(GSE):
     basepath = '/home//project/Metric_learning'; os.chdir(basepath)
     filein = 'Alzheimer/{}/exp.tsv'.format(GSE)
