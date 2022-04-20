@@ -1,7 +1,7 @@
 # **DrSim: Similarity learning for transcriptional phenotypic drug discovery**  
 ## Introduction
-DrSim is a general learning-based framework that automatically infers similarity measurement, and can be used to characterize transcriptional profiles for drug discovery
-with generalized good performance. Traditionally, such similarity measurements have been defined in an unsupervised way, and due to the high dimensionality and 
+DrSim is a general learning-based framework that automatically infers similarity measurement. The similarity measurement can then be used to characterize transcriptional profiles for drug discovery
+with generalized good performance. Traditionally, such similarity measurements have been defined in an unsupervised way, but due to the high dimensionality and 
 the existence of high noise in these high-throughput data, they lack robustness with limited performance. We evaluated DrSim on publicly available in vitro 
 and in vivo datasets in drug annotation and repositioning using high-throughput transcriptional perturbation data, and indicated that DrSim significantly outperforms the existing methods, and is proven to be a conceptual improvement by learning transcriptional similarity to facilitate the broad utility of high-throughput transcriptional perturbation data for phenotypic drug discovery.
 
