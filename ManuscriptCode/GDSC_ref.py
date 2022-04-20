@@ -8,6 +8,8 @@ from util import convertDrugName, sigid2iname
 from util import calCosine, calPearson, calSpearman, RunMultiProcess
 from scipy.stats import stats
 
+
+## using LINCS data to generate reference signatures
 ## depmap 找相关的细胞系信息
 ### HCC515和HEPG2在GDSC中没有,找最相似的代替
 #              乳腺癌   黑色素瘤  前列腺癌 结肠癌  胰腺癌   宫颈癌   肺腺癌   乳腺癌  前列腺癌  肺腺癌    肝癌
@@ -17,6 +19,8 @@ sig_id2pert_iname = sigid2iname('')
 singleLabel = RunMultiProcess().singleLabel
 level = RunMultiProcess().level
 ref_set = RunMultiProcess().ref_set
+
+
 
 def fun1():
     os.chdir('/home//database/GDSC')
