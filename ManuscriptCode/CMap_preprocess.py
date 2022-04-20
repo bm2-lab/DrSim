@@ -15,9 +15,13 @@ try:
 except:
     pass
 
+### generate LINCS reference signature from downloaded GCTX file and metadata
+
+### only retain cell lines with enough signatures
 cell_lines = ['MCF7', 'A375', 'PC3', 'HT29', 'YAPC', 'HELA', 'A549', 'BT20','VCAP', 'HCC515', 'HEPG2']
 cell_lines = ['HA1E', 'NPC']
 
+### preprocess metadata file
 def processGSE92742():
     keep_idose = [1, 10, 100, 500, 1000, 3000, 5000, 10000]
     os.chdir('/home//project/Metric_learning')
