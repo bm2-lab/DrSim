@@ -30,8 +30,8 @@ def main(X):
         output_file1  = 'ZScore/{}/{}_{}/LMNN{}.tsv'.format(cell_line, GSE, trTime, MOA)
         output_file2  = 'ZScore/{}/{}_{}/pca{}.tsv'.format(cell_line, GSE, trTime, MOA)
         file_PCA = 'ZScore/{}/{}_{}/PCA{}.pkl'.format(cell_line, GSE, trTime, MOA)
-        file_Xtr = 'ZScore/{}/{}_{}/Xtr.h5'.format(cell_line, GSE, trTime)
-        file_Xte = 'ZScore/{}/{}_{}/Xte.h5'.format(cell_line, GSE, trTime)
+        file_Xtr = 'ZScore/{}/{}_{}/Xtr.h5'.format(cell_line, GSE, trTime) ### reference signature file
+        file_Xte = 'ZScore/{}/{}_{}/Xte.h5'.format(cell_line, GSE, trTime) ### query signature file
         if not os.path.isfile(file_Xtr) or not os.path.isfile(file_Xte):
             if os.path.isfile(output_file1): os.remove(output_file1)
             if os.path.isfile(output_file2): os.remove(output_file2)
@@ -39,14 +39,14 @@ def main(X):
             return ''
         sig_id2pert_iname = sigid2iname(MOA)     ### 单个标签  iname_idose, iname
         Xtr = pd.read_hdf(file_Xtr); Xte = pd.read_hdf(file_Xte)
-        tmp = [i for i in Xtr.columns if i in Xte.columns]
+        tmp = [i for i in Xtr.columns if i in Xte.columns] ### intersection gene name
         Xtr = Xtr.loc[:, tmp]; Xte = Xte.loc[:, tmp]
         if singleLabel:
             pert_iname = [sig_id2pert_iname[i].split('_')[0] for i in Xtr.index]
         else:
             pert_iname = [sig_id2pert_iname[i] for i in Xtr.index]
         if len(np.unique(pert_iname)) == 1: return ''
-        if doPCA and rePCA:
+        if doPCA and rePCA: ### dimension reduction
             n_components = .98
             pca = PCA(random_state=0, n_components = n_components) ## 改变维度
             Xtr_pca = pca.fit_transform(Xtr); Xte_pca = pca.transform(Xte)
@@ -60,7 +60,7 @@ def main(X):
         else:
             Xtr_pca = Xtr.values; Xte_pca = Xte.values
         labelencoder = LabelEncoder()
-        ytr = labelencoder.fit_transform(pert_iname)
+        ytr = labelencoder.fit_transform(pert_iname) ### use drug name as the training label
         ml = LinearDiscriminantAnalysis(solver='svd', n_components=50, )
         #ml = metric_learn.LFDA(n_components=100, k=5)
         Xtr_pca_lmnn = ml.fit_transform(Xtr_pca, ytr); Xte_pca_lmnn = ml.transform(Xte_pca)
