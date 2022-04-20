@@ -42,7 +42,7 @@ def runLDA():
     tmp = [i for i in Xtr.columns if i in Xte.columns]
     Xtr = -Xtr.loc[:, tmp]; Xte = Xte.loc[:, tmp]
     sigid2MOA, sigid2drug = sigidTo('')
-    pert_iname = [sigid2drug[i] for i in Xtr.index]
+    pert_iname = [sigid2drug[i] for i in Xtr.index] ### using drug name as the training label
     pca = PCA(random_state=2020, n_components=args.variance)  ### dimension reduction using PCA
     Xtr_pca = pca.fit_transform(Xtr)
     Xte_pca = pca.transform(Xte)
