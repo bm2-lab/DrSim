@@ -22,13 +22,13 @@ def getDrugiDose(x):
     elif x[1] == 'nM':
         return int('{:.0f}'.format(float(x[0])))
 
-
+## using multi-process to speed up the task
 def myPool(func, mylist, processes):
     with Pool(processes) as pool:
         results = list(tqdm(pool.imap(func, mylist), total=len(mylist)))
     return results
 
-### convert sigid in LINCS to MOA class
+### convert sigid in LINCS to MOA class and drug class
 def sigidTo(MOA):
     label_filegz = '{}/../data/{}SigInfo.tsv.gz'.format(Datapath, MOA)
     if os.path.isfile(label_filegz):
