@@ -5,9 +5,10 @@ from multiprocessing import Pool
 import string, mygene
 from util import RunMultiProcess, convertDrugName
 from scipy.stats import stats
-### 生成癌症细胞系viper signature
+### 生成癌症细胞系signature
 
-
+#### script to generate cell line query signature
+#### cancer cell line downloaded from ccle, control downloaded from GTEx project 
 doMultiProcess = RunMultiProcess()
 def getGTEx(cell_line = 'MCF7'):
     mydict = {'MCF7':'Breast', 'A375':'Skin','PC3':'Prostate', 'HT29':'Colon','YAPC':'Pancreas',
