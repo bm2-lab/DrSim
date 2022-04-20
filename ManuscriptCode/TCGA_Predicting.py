@@ -22,7 +22,7 @@ matplotlib.rcParams['pdf.fonttype'] = 42
 matplotlib.rcParams['ps.fonttype'] = 42
 plt.rc('font',family='DejaVu Sans Mono')
 
-sig_pValue = 0.01
+sig_pValue = 0.01 # pvalue cutoff used to classify drugs to be effective or ineffective
 def fun2():
     filein = '/home//database/CMap/CMap_FDADrugs.tsv'
     dat = pd.read_csv(filein, sep='\t', header=0)
@@ -74,6 +74,7 @@ def f_preData():
         for trTime in ['6H', '24H']:
             preData(cell_line, trTime)
 
+### using Z-score function in LINCS to generate disease query signature
 def ZScorequery(cell_line, cancerType):
     basepath = '/home//project/Metric_learning'; os.chdir(basepath)
     treat, control = getExp(cancerType)
@@ -306,7 +307,7 @@ def ff_XSum():
         for trTime in ['6H', '24H']: f_XSum(cell_line, trTime)
 
 
-##############  KS and  GSEA
+##############  KS and  GSEA function 
 def KSAndGSEA(cell_line, trTime):
     Xtr, Xte = preXtr_Xte(cell_line, trTime)
     pert_iname = [sig_id2pert_iname[i].split('_')[0] for i in Xtr.index]
