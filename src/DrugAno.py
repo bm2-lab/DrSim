@@ -37,6 +37,7 @@ def writeResult(dat_cor, output_file):
             values = [str(round(i,4)) for i in values]
             fout.write('{}\t{}\t{}\n'.format(i, '\t'.join(positive), '\t'.join(values)))
 
+### LDA main function
 def runLDA():
     Xtr = pd.read_hdf(args.ref)
     if os.path.isfile(args.query):
