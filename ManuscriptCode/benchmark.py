@@ -9,7 +9,7 @@ from CMapGSEA import runGSEA
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import LabelEncoder
 
-
+### drug annotation benchmark
 sig_id2pert_iname = sigid2iname('')
 sig_id2MOA = sigid2iname('MOA')
 ### LDA  PCA  Cosine   KS  GSEA   XSum  XCos  sscMap
