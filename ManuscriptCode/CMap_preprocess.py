@@ -69,6 +69,7 @@ def processGSE92742_sh():
                 print (e)
                 break
 
+## subset signature using cell line and trTime factor
 def exPress(X):
     GSE, cell_line, time = X
     #fileout = 'ZScore/{}/{}_{}/zscore.tsv'.format(cell_line, GSE, time)
