@@ -9,6 +9,7 @@ level = RunMultiProcess().level
 filterDrugs = True      ###过滤掉一些没有注释的小分子药物
 
 
+## generate reference signature using LINCS data
 def fun3(cell_line):
     filein = '/home/wzt/project/Metric_learning/TCGA/{}/FDAapproved_raw.txt'.format(cell_line)
     fileout = '/home/wzt/project/Metric_learning/TCGA/{}/FDAapproved.txt'.format(cell_line)
