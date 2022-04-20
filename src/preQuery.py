@@ -19,8 +19,8 @@ import warnings
 warnings.filterwarnings('ignore')
 Datapath = os.path.dirname(os.path.abspath(__file__))
 
-
-##RNA-seq
+### calculation of query signature for DrSim
+##normalized RNA-seq express
 def Normalized():
     try:
         cmd = 'Rscript  {}/normalize.r  {}  {}'.format(Datapath, args.tumor, args.normal)
