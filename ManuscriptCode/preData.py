@@ -6,7 +6,7 @@ from util import RunMultiProcess, getLmGenes, convertDrugName
 from sklearn.utils import shuffle
 from sklearn.model_selection import train_test_split
 
-
+### prepare reference data
 level = 'L4'
 def myfun(x, y):
     allSize = 2   ### 一个MOA有几个药物
