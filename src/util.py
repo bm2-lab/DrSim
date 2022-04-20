@@ -7,6 +7,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd, numpy as np
 Datapath = os.path.dirname(os.path.abspath(__file__))
 
+### only keep ascii_letters and '-' in drug name
 def convertDrugName(name):
     temp = []
     for i in str(name):
@@ -21,17 +22,13 @@ def getDrugiDose(x):
     elif x[1] == 'nM':
         return int('{:.0f}'.format(float(x[0])))
 
-def calCosine(Xtr, Xte):
-    dat_cor = pd.DataFrame(cosine_similarity(Xte,Xtr))
-    dat_cor.columns = Xtr.index
-    dat_cor.index = Xte.index
-    return dat_cor
 
 def myPool(func, mylist, processes):
     with Pool(processes) as pool:
         results = list(tqdm(pool.imap(func, mylist), total=len(mylist)))
     return results
 
+### convert sigid to MOA class
 def sigidTo(MOA):
     label_filegz = '{}/../data/{}SigInfo.tsv.gz'.format(Datapath, MOA)
     if os.path.isfile(label_filegz):
@@ -53,6 +50,8 @@ def sigidTo(MOA):
                     sigid2drug[i] = lines[2]
     return sigid2MOA, sigid2drug
 
+
+### get drug MOA class
 def drugTOMOA():
     label_file = '{}/../data/MOASigInfo.tsv'.format(Datapath)
     drug2MOA = {}
@@ -63,14 +62,14 @@ def drugTOMOA():
             drug2MOA[lines[2]] = lines[-1]
     return drug2MOA
 
-
+###  cosine similarity between signatures
 def calCosine(Xtr, Xte):
     dat_cor = pd.DataFrame(cosine_similarity(Xte,Xtr))
     dat_cor.columns = Xtr.index
     dat_cor.index = Xte.index
     return dat_cor
 
-
+#### using randomly generated signatures to calculate the pvalue of a compound
 def calPvalue(ref, query, experiment, fun):
     nperm = 1000
     rs = np.random.RandomState(seed=2020)
