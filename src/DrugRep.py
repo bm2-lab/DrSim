@@ -22,6 +22,7 @@ from util import calCosine, drugTOMOA, sigidTo, calPvalue
 
 Datapath = os.path.dirname(os.path.abspath(__file__))
 
+### output the ranked drug repositioning result
 def writeResult(dat_cor, output_file):
     dat_cor = dat_cor.T
     dat_cor.columns = ['DrugScore']
@@ -42,21 +43,21 @@ def runLDA():
     Xtr = -Xtr.loc[:, tmp]; Xte = Xte.loc[:, tmp]
     sigid2MOA, sigid2drug = sigidTo('')
     pert_iname = [sigid2drug[i] for i in Xtr.index]
-    pca = PCA(random_state=2020, n_components=args.variance)
+    pca = PCA(random_state=2020, n_components=args.variance)  ### dimension reduction using PCA
     Xtr_pca = pca.fit_transform(Xtr)
     Xte_pca = pca.transform(Xte)
     labelencoder = LabelEncoder()
     ytr = labelencoder.fit_transform(pert_iname)
-    ml = LinearDiscriminantAnalysis(solver='svd', n_components=args.dimension)
+    ml = LinearDiscriminantAnalysis(solver='svd', n_components=args.dimension) ## LDA metric learning
     Xtr_pca_lda = ml.fit_transform(Xtr_pca, ytr)
     Xte_pca_lda = ml.transform(Xte_pca)
-    Xtr_pca_lda = Xtr_pca_lda[:, ~np.isnan(Xtr_pca_lda)[0]]
-    Xte_pca_lda = Xte_pca_lda[:, ~np.isnan(Xte_pca_lda)[0]]
+    Xtr_pca_lda = Xtr_pca_lda[:, ~np.isnan(Xtr_pca_lda)[0]] ### filter NA column 
+    Xte_pca_lda = Xte_pca_lda[:, ~np.isnan(Xte_pca_lda)[0]] ### filter NA column
     a = pd.DataFrame(Xtr_pca_lda, index = pert_iname)
     ref = a.groupby(pert_iname).median()
     query = pd.DataFrame(data = Xte_pca_lda, index = Xte.index)
-    dat_cor = -calCosine(Xtr = ref, Xte = query)
-    pValue = calPvalue(ref, query, experiment='positive', fun=calCosine)
+    dat_cor = -calCosine(Xtr = ref, Xte = query)   ### calculation of cosine similarity
+    pValue = calPvalue(ref, query, experiment='positive', fun=calCosine) ### calculation the p-value of a compound
     a = pValue <= args.pvalue; dat_cor = dat_cor.iloc[:, a.values[0]]
     writeResult(dat_cor, args.output)
 
