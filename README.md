@@ -1,6 +1,6 @@
 # **DrSim: Similarity learning for transcriptional phenotypic drug discovery**  
 ## Introduction
-DrSim is a learning-based framework that automatically infers similarity measurement for drug discovery from transcriptional perturbation data. Traditionally, such similarity measurement has been defined in an unsupervised way. But due to the high dimensionality and the existence of high noise in thses perturbation data, they lack robustness with limited performance. DrSim significantly outperforms the existing methods on publicly available in vitro and in vivo datasets in drug annotation and repositioning scenario.
+DrSim is a learning-based framework that automatically infers similarity for drug discovery from transcriptional perturbation data. Traditionally, such similarity has been defined in an unsupervised way. But due to the high dimensionality and the existence of high noise in thses perturbation data, they lack robustness with limited performance. DrSim significantly outperforms the existing methods on publicly available in vitro and in vivo datasets in drug annotation and repositioning scenario.
 ## Dependencies
 #### Required Software:
 * [sklearn](https://scikit-learn.org/stable/index.html/)
@@ -38,7 +38,7 @@ For detailed information about usage, data preparation, input, output files and 
 ![](workflow.png)<!-- -->
 ### **DrSim** comprises three steps: data preprocessing, model training and similarity calculation
 * **(i)** In the first step, only signatures treated by compounds for 6H or 24H in the nine human cancer cell lines are retained. The retained signatures are then split into subsets according to the cell type and time point attributes. 
-*  **(ii)** In the second step, DrSim automatically infers a similarity measurement for query assignment based on the training reference signatures. First, PCA is applied to the reference signatures to denoise and reduce dimensionality. A transformation matrix P is obtained. Second, by applying LDA to the dimensionality-reduced signatures, a transformation matrix L is learned. The label of a signature is the compound that induced the signature. Finally, the transformed references denoted as TR belonging to the identical compound are median centered to derive the transformed median centered references (denoted as TMR). The transformed references TR is calculated using Eq. 1. 
+*  **(ii)** In the second step, DrSim automatically infers a similarity for query assignment based on the training reference signatures. First, PCA is applied to the reference signatures to denoise and reduce dimensionality. A transformation matrix P is obtained. Second, by applying LDA to the dimensionality-reduced signatures, a transformation matrix L is learned. The label of a signature is the compound that induced the signature. Finally, the transformed references denoted as TR belonging to the identical compound are median centered to derive the transformed median centered references (denoted as TMR). The transformed references TR is calculated using Eq. 1. 
 *  **(iii)** In the third step, given a query signature, after transformation by P and L, its similarities to TMR are calculated by cosine similarity.
  
 
