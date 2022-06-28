@@ -32,7 +32,7 @@ DrSim can be applied for:
     python  DrugRep.py   -ref  DrugRepRef.h5  -query  query.tsv
     
 ## User Manual
-For detailed information about usage, data preparation, input, output files and example files, please refer to the [DrSim User Manual](/doc/DrSim_User_Manual.md). The reference signatures in LINCS are available at [onedrive](https://tongjieducn-my.sharepoint.com/:f:/g/personal/1810546_tongji_edu_cn/EilBAh48yfNCmgXZGu1kF5AB845goXLHllwhg1Q8d9akjg?e=pusKSM). The example query signatures generated in TCGA in vivo data are available at [onedrive](https://tongjieducn-my.sharepoint.com/:f:/g/personal/1810546_tongji_edu_cn/EsGz1_ulnkBOr4KIW3RIw04BNkB01ShvpfL5aNnosFrfCw?e=hJi0N9).
+For detailed information about usage, data preparation, input, output files and example files, please refer to the [DrSim User Manual](/doc/DrSim_User_Manual.md). The reference signatures in LINCS are available at [onedrive](https://tongjieducn-my.sharepoint.com/:f:/g/personal/1810546_tongji_edu_cn/ErA6XlXYs4lDogtUd5UgBU4By-KEgixKsU0ual9PycblRQ). The example query signatures generated in TCGA in vivo data are available at [onedrive](https://tongjieducn-my.sharepoint.com/:f:/g/personal/1810546_tongji_edu_cn/Em-KQ5LmrLhLpL9KCDtEOCQB5g9kOh_C-6sijjlEpKcXdA).
  
 ## DrSim flowchart
 ![](workflow.png)<!-- -->
